@@ -76,7 +76,7 @@
                             android:visibility="gone" />
                     </FrameLayout>
 
-                    <com.baidu.voicerecognition.android.ui.SDKAnimationView
+                    <com.joey.myvoice.ui.SDKAnimationView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -108,7 +108,7 @@
                         android:visibility="gone" />
                 </LinearLayout>
 
-                <com.baidu.voicerecognition.android.ui.SDKProgressBar
+                <com.joey.myvoice.ui.SDKProgressBar
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:tag="progress" />

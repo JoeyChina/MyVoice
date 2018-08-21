@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Environment;
 
-import com.baidu.android.voicedemo.util.FileUtil;
-import com.baidu.android.voicedemo.util.Logger;
 import com.baidu.speech.asr.SpeechConstant;
-import com.baidu.speech.xiaobai.R;
+import com.joey.myvoice.R;
+import com.joey.myvoice.util.FileUtil;
+import com.joey.myvoice.util.Logger;
 
 import java.util.ArrayList;
 import java.util.Arrays;

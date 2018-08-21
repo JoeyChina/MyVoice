@@ -9,11 +9,11 @@ import android.os.Bundle;
 import android.util.AndroidRuntimeException;
 import android.util.Log;
 
-import com.baidu.android.voicedemo.control.MyRecognizer;
-import com.baidu.android.voicedemo.recognization.ChainRecogListener;
-import com.baidu.android.voicedemo.recognization.IRecogListener;
-import com.baidu.android.voicedemo.recognization.RecogResult;
 import com.baidu.speech.asr.SpeechConstant;
+import com.joey.myvoice.control.MyRecognizer;
+import com.joey.myvoice.recognization.ChainRecogListener;
+import com.joey.myvoice.recognization.IRecogListener;
+import com.joey.myvoice.recognization.RecogResult;
 
 import java.util.ArrayList;
 import java.util.Arrays;

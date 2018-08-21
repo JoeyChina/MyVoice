@@ -3,9 +3,9 @@ package com.joey.myvoice.recognization.nlu;
 import android.app.Activity;
 import android.content.SharedPreferences;
 
-import com.baidu.android.voicedemo.recognization.CommonRecogParams;
-import com.baidu.android.voicedemo.recognization.offline.OfflineRecogParams;
 import com.baidu.speech.asr.SpeechConstant;
+import com.joey.myvoice.recognization.CommonRecogParams;
+import com.joey.myvoice.recognization.offline.OfflineRecogParams;
 
 import java.util.Arrays;
 import java.util.Map;

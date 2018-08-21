@@ -1,7 +1,7 @@
 package com.joey.myvoice.ui;
 
-import com.baidu.android.voicedemo.control.MyRecognizer;
-import com.baidu.android.voicedemo.recognization.ChainRecogListener;
+import com.joey.myvoice.control.MyRecognizer;
+import com.joey.myvoice.recognization.ChainRecogListener;
 
 import java.util.Map;
 

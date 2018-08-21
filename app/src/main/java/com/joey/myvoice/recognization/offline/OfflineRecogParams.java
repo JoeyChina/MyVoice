@@ -3,8 +3,8 @@ package com.joey.myvoice.recognization.offline;
 import android.app.Activity;
 import android.content.SharedPreferences;
 
-import com.baidu.android.voicedemo.recognization.CommonRecogParams;
 import com.baidu.speech.asr.SpeechConstant;
+import com.joey.myvoice.recognization.CommonRecogParams;
 
 import org.json.JSONArray;
 import org.json.JSONException;

@@ -2,8 +2,8 @@ package com.joey.myvoice.recognization.all;
 
 import android.app.Activity;
 
-import com.baidu.android.voicedemo.recognization.CommonRecogParams;
 import com.baidu.speech.asr.SpeechConstant;
+import com.joey.myvoice.recognization.CommonRecogParams;
 
 import java.util.Arrays;
 

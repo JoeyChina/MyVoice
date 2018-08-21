@@ -2,7 +2,7 @@ package com.joey.myvoice.recognization.inputstream;
 
 import android.app.Activity;
 
-import com.baidu.android.voicedemo.util.Logger;
+import com.joey.myvoice.util.Logger;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
