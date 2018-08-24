@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.speech.EventListener;
 import com.baidu.speech.asr.SpeechConstant;
 import com.joey.myvoice.control.ErrorTranslation;
-import com.joey.myvoice.util.Logger;
+import com.joey.myvoice.util.BDLogger;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -71,7 +71,7 @@ public class RecogEventAdapter implements EventListener {
             if (recogResult.hasError()) {
                 int errorCode = recogResult.getError();
                 int subErrorCode = recogResult.getSubError();
-                Logger.error(TAG, "asr error:" + params);
+                BDLogger.error(TAG, "asr error:" + params);
                 listener.onAsrFinishError(errorCode, subErrorCode, ErrorTranslation.recogError(errorCode), recogResult.getDesc(), recogResult);
             } else {
                 listener.onAsrFinish(recogResult);
@@ -86,7 +86,7 @@ public class RecogEventAdapter implements EventListener {
             listener.onAsrVolume(vol.volumePercent, vol.volume);
         } else if (name.equals(SpeechConstant.CALLBACK_EVENT_ASR_AUDIO)) {
             if (data.length != length) {
-                Logger.error(TAG, "internal error: asr.audio callback data length is not equal to length param");
+                BDLogger.error(TAG, "internal error: asr.audio callback data length is not equal to length param");
             }
             listener.onAsrAudio(data, offset, length);
         }

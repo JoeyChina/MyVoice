@@ -6,8 +6,8 @@ import android.os.Environment;
 
 import com.baidu.speech.asr.SpeechConstant;
 import com.joey.myvoice.R;
-import com.joey.myvoice.util.FileUtil;
-import com.joey.myvoice.util.Logger;
+import com.joey.myvoice.util.BDFileUtil;
+import com.joey.myvoice.util.BDLogger;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -63,9 +63,9 @@ public class CommonRecogParams {
     protected void initSamplePath(Activity context) {
         String sampleDir = "baiduASR";
         samplePath = Environment.getExternalStorageDirectory().toString() + "/" + sampleDir;
-        if (!FileUtil.makeDir(samplePath)) {
+        if (!BDFileUtil.makeDir(samplePath)) {
             samplePath = context.getApplication().getExternalFilesDir(sampleDir).getAbsolutePath();
-            if (!FileUtil.makeDir(samplePath)) {
+            if (!BDFileUtil.makeDir(samplePath)) {
                 throw new RuntimeException("创建临时目录失败 :" + samplePath);
             }
         }
@@ -87,7 +87,7 @@ public class CommonRecogParams {
         if (sp.getBoolean("_outfile", false)) { // 保存录音文件
             map.put(SpeechConstant.ACCEPT_AUDIO_DATA, true); // 目前必须开启此回掉才嫩保存音频
             map.put(SpeechConstant.OUT_FILE, samplePath + "/outfile.pcm");
-            Logger.info(TAG, "语音录音文件将保存在：" + samplePath + "/outfile.pcm");
+            BDLogger.info(TAG, "语音录音文件将保存在：" + samplePath + "/outfile.pcm");
         }
 
         return map;

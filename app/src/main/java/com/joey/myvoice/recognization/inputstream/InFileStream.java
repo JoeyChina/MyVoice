@@ -2,7 +2,7 @@ package com.joey.myvoice.recognization.inputstream;
 
 import android.app.Activity;
 
-import com.joey.myvoice.util.Logger;
+import com.joey.myvoice.util.BDLogger;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -58,7 +58,7 @@ public class InFileStream {
         InputStream res = null;
         try {
             InputStream is = context.getAssets().open("outfile.pcm");
-            Logger.info(TAG, "create input stream ok " + is.available());
+            BDLogger.info(TAG, "create input stream ok " + is.available());
             res = new FileAudioInputStream(is);
         } catch (IOException e) {
             e.printStackTrace();

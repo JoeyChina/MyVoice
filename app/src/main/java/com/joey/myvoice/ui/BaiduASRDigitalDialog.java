@@ -498,6 +498,7 @@ public class BaiduASRDigitalDialog extends BaiduASRDialog {
         try {
             mLableRes = ResourceBundle.getBundle("BaiduASRDigitalDialog");
             mLogoText1.setText(getString(KEY_TIPS_COPYRIGHT));
+//            mLogoText1.setText(getString(R.string.app_name));
             mLogoText2.setText(getString(KEY_TIPS_COPYRIGHT));
             mRetryTextView.setText(getString(KEY_BTN_RETRY));
             mTitle.setText(getString(KEY_TIPS_HELP_TITLE));

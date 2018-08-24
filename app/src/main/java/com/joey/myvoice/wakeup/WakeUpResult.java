@@ -1,7 +1,7 @@
 package com.joey.myvoice.wakeup;
 
 import com.baidu.speech.asr.SpeechConstant;
-import com.joey.myvoice.util.Logger;
+import com.joey.myvoice.util.BDLogger;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -83,7 +83,7 @@ public class WakeUpResult {
             }
 
         } catch (JSONException e) {
-            Logger.error(TAG, "Json parse error" + jsonStr);
+            BDLogger.error(TAG, "Json parse error" + jsonStr);
             e.printStackTrace();
         }
 

@@ -40,12 +40,18 @@ public class SDKAnimationView extends View {
     // 使音量下降效果变平和
     private static final int BAR_DROPOFF_STEP = 1;
 
-    // 百度logo阵列
+    // CANALL logo阵列
+    private static final int[] BAIDU_LOGO = {
+            0x00000060, 0x000001f0, 0x00000030, 0x0000CF90,
+            0x0000DFD0, 0x0003BFE0, 0x0003B8F0, 0x0000F070, 0x0000E070, 0x0000E070, 0x0000E070,
+            0x000070F0, 0x000078E0, 0x000038C0, 0x00008200, 0x0000CC00, 0x00007800
+    };
+    /*// 百度logo阵列
     private static final int[] BAIDU_LOGO = {
             0x00003800, 0x00007C00, 0x00007CF8, 0x000039FC,
             0x0003839C, 0x0007C76C, 0x0007CF6C, 0x00039C08, 0x00001FF8, 0x00039F18, 0x0007CFEC,
             0x0007C7EC, 0x0003830C, 0x000039FC, 0x00007CF8, 0x00007C00, 0x00003800
-    };
+    };*/
     private static final int BEGIN_LOC_X = 27;
 
     /* INITIALIZING状态数据 */

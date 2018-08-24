@@ -4,7 +4,7 @@ package com.joey.myvoice.wakeup;
 import com.baidu.speech.EventListener;
 import com.baidu.speech.asr.SpeechConstant;
 import com.joey.myvoice.control.ErrorTranslation;
-import com.joey.myvoice.util.Logger;
+import com.joey.myvoice.util.BDLogger;
 
 /**
  * Created by fujiayi on 2017/6/20.
@@ -22,7 +22,7 @@ public class WakeupEventAdapter implements EventListener {
     @Override
     public void onEvent(String name, String params, byte[] data, int offset, int length) {
         // android studio日志Monitor 中搜索 WakeupEventAdapter即可看见下面一行的日志
-        Logger.info(TAG, "wakeup name:" + name + "; params:" + params);
+        BDLogger.info(TAG, "wakeup name:" + name + "; params:" + params);
         if (SpeechConstant.CALLBACK_EVENT_WAKEUP_SUCCESS.equals(name)) { // 识别唤醒词成功
             WakeUpResult result = WakeUpResult.parseJson(name, params);
             int errorCode = result.getErrorCode();

@@ -21,14 +21,18 @@
         <!-- 正式发布时，请替换成您自己的appId 本demo的appId会不定时下线 -->
         <meta-data
             android:name="com.baidu.speech.APP_ID"
-            android:value="10674398" />
+            android:value="11709853" />
         <meta-data
             android:name="com.baidu.speech.API_KEY"
-            android:value="a8aZUvtoQjsrsVKy7UolPtUe" />
+            android:value="3xSajX5Z6x6GrkrVB3uYnPVE" />
         <meta-data
             android:name="com.baidu.speech.SECRET_KEY"
-            android:value="d14094ef8273855e1736f6ddc7b487c0" />
+            android:value="D4yITpZ8dMUydexej1iyoVZA2xen0yqo" />
         <!-- 请确认集成后的包名是否正确，本demo的包名是com.baidu.speech.recognizerdemo，在build.gradle文件中查看 -->
+        <service
+            android:name="com.baidu.speech.VoiceRecognitionService"
+            android:exported="false" />
+
 
         <activity android:name=".MainActivity">
             <intent-filter>

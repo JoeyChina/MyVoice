@@ -81,7 +81,7 @@ public class PinyinSimilarity {
 			output = changeWordProcessEnglish(output);
 						
 			//所有汉字进行相似替换
-			LogUtil.logWithMethod(new Exception(),"input.length()="+input.length());
+			PinyinLogUtil.logWithMethod(new Exception(),"input.length()="+input.length());
 			int index;
 			String str;
 			String strChanged;
@@ -93,7 +93,7 @@ public class PinyinSimilarity {
 			}
 			
 			output=strBuilder.toString();
-			LogUtil.logWithMethod(new Exception(),"after changeAllWord: output="+output);
+			PinyinLogUtil.logWithMethod(new Exception(),"after changeAllWord: output="+output);
 		
 		} catch (Exception e){
 			e.printStackTrace();
@@ -128,7 +128,7 @@ public class PinyinSimilarity {
  	public String changeOneWord(String strInput){
  		//若已经在目标集合中了，就不需要转换了
  	    if(numberStringArabic.contains(strInput)){
- 	    	LogUtil.logWithMethod(new Exception(),"is number");
+ 	    	PinyinLogUtil.logWithMethod(new Exception(),"is number");
  	    	return strInput; 	    
  	    }
  	    if(numberString.contains(strInput)){
@@ -160,13 +160,13 @@ public class PinyinSimilarity {
 			if(str.matches("^[A-Z]{1}$")){
 				
 	            strPinyin = englishPinYin26[englishString26.indexOf(str)];
-	            LogUtil.logWithMethod(new Exception(), "str="+str+" Pinyin="+strPinyin );
+	            PinyinLogUtil.logWithMethod(new Exception(), "str="+str+" Pinyin="+strPinyin );
 	            flagGetPinyin = true;
 			}
 			else if(str.matches("^[0-9]{1}$")){
 				
 	            strPinyin = numberPinYin.get(numberString.indexOf(str));
-	            LogUtil.logWithMethod(new Exception(), "str="+str+" Pinyin="+strPinyin );
+	            PinyinLogUtil.logWithMethod(new Exception(), "str="+str+" Pinyin="+strPinyin );
 	            flagGetPinyin = true;
 			}
 			else if(str.matches("^[\u4e00-\u9fa5]{1}$")){
@@ -196,12 +196,12 @@ public class PinyinSimilarity {
 	            		
 	            		strPinyinFuzzy = replaceHeadString(strPinyinFuzzy);
 	            		boolean flagReplacedHeadString = (strPinyinFuzzy==null)?false:true;
-//	            		LogUtil.logWithMethod(new Exception(),"flagReplacedHeadString="+flagReplacedHeadString);
+//	            		PinyinLogUtil.logWithMethod(new Exception(),"flagReplacedHeadString="+flagReplacedHeadString);
 	            		if(flagReplacedHeadString){
 	            			num=listPinYin.indexOf(strPinyinFuzzy);
-//	            			LogUtil.logWithMethod(new Exception(), "del Phonogram, replace Initials,strPinyinFuzzy="+strPinyinFuzzy+": indexOf num="+num);
+//	            			PinyinLogUtil.logWithMethod(new Exception(), "del Phonogram, replace Initials,strPinyinFuzzy="+strPinyinFuzzy+": indexOf num="+num);
 	            			if(num>=0){ //拼音模糊匹配成功
-	            				LogUtil.logWithMethod(new Exception(), "fuzzy match: "+strPinyinFuzzy+" num="+num);
+	            				PinyinLogUtil.logWithMethod(new Exception(), "fuzzy match: "+strPinyinFuzzy+" num="+num);
 	         	            	return strSource.substring(num, num+1);
 	         	            }
 	            		}
@@ -212,9 +212,9 @@ public class PinyinSimilarity {
 	            		boolean flagReplacedTailString = (strPinyinFuzzy==null)?false:true;
 	            		if(flagReplacedTailString){
 	            			num=listPinYin.indexOf(strPinyinFuzzy);
-//	            			LogUtil.logWithMethod(new Exception(), "del Phonogram, replace Vowel,strPinyinFuzzy="+strPinyinFuzzy+": indexOf num="+num);
+//	            			PinyinLogUtil.logWithMethod(new Exception(), "del Phonogram, replace Vowel,strPinyinFuzzy="+strPinyinFuzzy+": indexOf num="+num);
 	            			if(num>=0){ //拼音模糊匹配成功
-	            				LogUtil.logWithMethod(new Exception(), "fuzzy match: "+strPinyinFuzzy+" num="+num);
+	            				PinyinLogUtil.logWithMethod(new Exception(), "fuzzy match: "+strPinyinFuzzy+" num="+num);
 	         	            	return strSource.substring(num, num+1);
 	         	            }
 	            		}
@@ -224,7 +224,7 @@ public class PinyinSimilarity {
 		            		strPinyinFuzzy = replaceHeadString(strPinyinFuzzy);		            		
 	            			num=listPinYin.indexOf(strPinyinFuzzy);
 	            			if(num>=0){ //拼音模糊匹配成功
-	            				LogUtil.logWithMethod(new Exception(), "fuzzy match: "+strPinyinFuzzy+" num="+num);
+	            				PinyinLogUtil.logWithMethod(new Exception(), "fuzzy match: "+strPinyinFuzzy+" num="+num);
 	         	            	return strSource.substring(num, num+1);
 	         	            }
 	            		}
@@ -237,7 +237,7 @@ public class PinyinSimilarity {
 	            		strPinyinFuzzy = new String(strPinyin) ;//避免修改原字符串
 	            		num=findPinyin(strPinyinFuzzy,listPinYin);
 	            		if(num>=0){ //拼音模糊匹配成功
-            				LogUtil.logWithMethod(new Exception(), "fuzzy match: "+strPinyinFuzzy+" num="+num);
+            				PinyinLogUtil.logWithMethod(new Exception(), "fuzzy match: "+strPinyinFuzzy+" num="+num);
          	            	return strSource.substring(num, num+1);
          	            }
 	            		
@@ -249,9 +249,9 @@ public class PinyinSimilarity {
 
 	            			num=findPinyin(strPinyinFuzzy,listPinYin);
 	            			
-//	            			LogUtil.logWithMethod(new Exception(), "del Phonogram, replace Initials,strPinyinFuzzy="+strPinyinFuzzy+": indexOf num="+num);
+//	            			PinyinLogUtil.logWithMethod(new Exception(), "del Phonogram, replace Initials,strPinyinFuzzy="+strPinyinFuzzy+": indexOf num="+num);
 	            			if(num>=0){ //拼音模糊匹配成功
-	            				LogUtil.logWithMethod(new Exception(), "fuzzy match: "+strPinyinFuzzy+" num="+num);
+	            				PinyinLogUtil.logWithMethod(new Exception(), "fuzzy match: "+strPinyinFuzzy+" num="+num);
 	         	            	return strSource.substring(num, num+1);
 	         	            }
 	            		}
@@ -262,9 +262,9 @@ public class PinyinSimilarity {
 	            		flagReplacedTailString = (strPinyinFuzzy==null)?false:true;
 	            		if(flagReplacedTailString){
 	            			num=findPinyin(strPinyinFuzzy,listPinYin);
-//	            			LogUtil.logWithMethod(new Exception(), "del Phonogram, replace Vowel,strPinyinFuzzy="+strPinyinFuzzy+": indexOf num="+num);
+//	            			PinyinLogUtil.logWithMethod(new Exception(), "del Phonogram, replace Vowel,strPinyinFuzzy="+strPinyinFuzzy+": indexOf num="+num);
 	            			if(num>=0){ //拼音模糊匹配成功
-	            				LogUtil.logWithMethod(new Exception(), "fuzzy match: "+strPinyinFuzzy+" num="+num);
+	            				PinyinLogUtil.logWithMethod(new Exception(), "fuzzy match: "+strPinyinFuzzy+" num="+num);
 	         	            	return strSource.substring(num, num+1);
 	         	            }
 	            		}
@@ -274,7 +274,7 @@ public class PinyinSimilarity {
 	            			strPinyinFuzzy = replaceHeadString(strPinyinFuzzy);
 	            			num=findPinyin(strPinyinFuzzy,listPinYin);
 	            			if(num>=0){ //拼音模糊匹配成功
-	            				LogUtil.logWithMethod(new Exception(), "fuzzy match: "+strPinyinFuzzy+" num="+num);
+	            				PinyinLogUtil.logWithMethod(new Exception(), "fuzzy match: "+strPinyinFuzzy+" num="+num);
 	         	            	return strSource.substring(num, num+1);
 	         	            }
 	            		}	            		
@@ -323,7 +323,7 @@ public class PinyinSimilarity {
 			return null;
 		}
 		
-		LogUtil.logWithMethod(new Exception(),"strReplaced="+strReplaced);
+		PinyinLogUtil.logWithMethod(new Exception(),"strReplaced="+strReplaced);
 		return strReplaced;//flagReplaced;
     	
     }
@@ -370,7 +370,7 @@ public class PinyinSimilarity {
     	for(String str : list){
     		for(int j=i+1;j<len;j++){
 		    	if(str.contentEquals(list.get(j))){
-		    		LogUtil.logWithMethod(new Exception(),
+		    		PinyinLogUtil.logWithMethod(new Exception(),
 		    				 				" pinyin="+str);
 		    	}
     		}

@@ -9,7 +9,7 @@ import com.baidu.speech.EventManagerFactory;
 import com.baidu.speech.asr.SpeechConstant;
 import com.joey.myvoice.recognization.IRecogListener;
 import com.joey.myvoice.recognization.RecogEventAdapter;
-import com.joey.myvoice.util.Logger;
+import com.joey.myvoice.util.BDLogger;
 
 import org.json.JSONObject;
 
@@ -55,7 +55,7 @@ public class MyRecognizer {
      */
     public MyRecognizer(Context context, EventListener eventListener) {
         if (isInited) {
-            Logger.error(TAG, "还未调用release()，请勿新建一个新类");
+            BDLogger.error(TAG, "还未调用release()，请勿新建一个新类");
             throw new RuntimeException("还未调用release()，请勿新建一个新类");
         }
         isInited = true;
@@ -69,7 +69,7 @@ public class MyRecognizer {
      */
     public void loadOfflineEngine(Map<String, Object> params) {
         String json = new JSONObject(params).toString();
-        Logger.info(TAG + ".Debug", "loadOfflineEngine params:" + json);
+        BDLogger.info(TAG + ".Debug", "loadOfflineEngine params:" + json);
         asr.send(SpeechConstant.ASR_KWS_LOAD_ENGINE, json, null, 0, 0);
         isOfflineEngineLoaded = true;
         // 没有ASR_KWS_LOAD_ENGINE这个回调表试失败，如缺少第一次联网时下载的正式授权文件。
@@ -77,7 +77,7 @@ public class MyRecognizer {
 
     public void start(Map<String, Object> params) {
         String json = new JSONObject(params).toString();
-        Logger.info(TAG + ".Debug", "asr params(识别参数，反馈请带上此行日志):" + json);
+        BDLogger.info(TAG + ".Debug", "asr params(识别参数，反馈请带上此行日志):" + json);
         asr.send(SpeechConstant.ASR_START, json, null, 0, 0);
     }
 
@@ -85,7 +85,7 @@ public class MyRecognizer {
      * 提前结束录音等待识别结果。
      */
     public void stop() {
-        Logger.info(TAG, "停止录音");
+        BDLogger.info(TAG, "停止录音");
         asr.send(SpeechConstant.ASR_STOP, "{}", null, 0, 0);
     }
 
@@ -94,7 +94,7 @@ public class MyRecognizer {
      * cancel 与stop的区别是 cancel在stop的基础上，完全停止整个识别流程，
      */
     public void cancel() {
-        Logger.info(TAG, "取消识别");
+        BDLogger.info(TAG, "取消识别");
         if (asr != null) {
             asr.send(SpeechConstant.ASR_CANCEL, "{}", null, 0, 0);
         }

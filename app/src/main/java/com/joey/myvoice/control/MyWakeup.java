@@ -6,7 +6,7 @@ import com.baidu.speech.EventListener;
 import com.baidu.speech.EventManager;
 import com.baidu.speech.EventManagerFactory;
 import com.baidu.speech.asr.SpeechConstant;
-import com.joey.myvoice.util.Logger;
+import com.joey.myvoice.util.BDLogger;
 import com.joey.myvoice.wakeup.IWakeupListener;
 import com.joey.myvoice.wakeup.WakeupEventAdapter;
 
@@ -30,7 +30,7 @@ public class MyWakeup {
 
     public MyWakeup(Context context, EventListener eventListener) {
         if (isInited) {
-            Logger.error(TAG, "还未调用release()，请勿新建一个新类");
+            BDLogger.error(TAG, "还未调用release()，请勿新建一个新类");
             throw new RuntimeException("还未调用release()，请勿新建一个新类");
         }
         isInited = true;
@@ -45,12 +45,12 @@ public class MyWakeup {
 
     public void start(Map<String, Object> params) {
         String json = new JSONObject(params).toString();
-        Logger.info(TAG + ".Debug", "wakeup params(反馈请带上此行日志):" + json);
+        BDLogger.info(TAG + ".Debug", "wakeup params(反馈请带上此行日志):" + json);
         wp.send(SpeechConstant.WAKEUP_START, json, null, 0, 0);
     }
 
     public void stop() {
-        Logger.info(TAG, "唤醒结束");
+        BDLogger.info(TAG, "唤醒结束");
         wp.send(SpeechConstant.WAKEUP_STOP, null, null, 0, 0);
     }
 
